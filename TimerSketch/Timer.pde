@@ -6,7 +6,7 @@ class Timer {
     public void startTimer ()
     {    
         if (isTiming == false) {
-            resetTimer ();
+            reset();
             isTiming = true;
             startTime = millis()/1000f;
         }
@@ -17,7 +17,7 @@ class Timer {
         return isTiming;
     }
 
-    public void stopTimer ()
+    public void halt()
     {
         if (isTiming) {
             isTiming = false;
@@ -25,7 +25,7 @@ class Timer {
         }
     }
 
-    public void resumeTimer ()
+    public void resume ()
     {
         if (!isTiming) {
             startTime = millis()/1000f;
@@ -33,7 +33,7 @@ class Timer {
         }
     }
 
-    public void resetTimer ()
+    public void reset ()
     {
         timePassed = currentTime = startTime = timePassedPrevious = 0;
     }
