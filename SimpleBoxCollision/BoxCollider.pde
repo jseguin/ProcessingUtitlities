@@ -126,22 +126,22 @@ class BoxCollider {
         rightTouching = false, 
         leftTouching  = false;
 
+        //Is a contact occuring?
         if (b2.x - (b1.x+ b1.w) <= 0 && (b2.x + b2.w) - b1.x >= 0) {
             if (b2.y - (b1.y+b1.h) <= 0 && (b2.y + b2.h) - b1.y >= 0) {
-                //Y inside contact range
 
-                //x inside contact range
+                //Left or Right Touching?
                 if (b2.x - (b1.x + b1.w) == 0) {
                     //b1 right touching b2 left
                     xTouching = true;
                     rightTouching = true;
                 } else if ((b2.x+b2.w) - b1.x == 0) {
-                    //b1 left touching b2 right
+                    //b1 left touching b2 right 
                     xTouching = true;
                     leftTouching = true;
                 }
 
-                //Y Cases
+                //Top or Bottom Touching?
                 if (b2.y - (b1.y+b1.h) == 0) {
                     //b1 bottom touching b2 top
                     yTouching = true;
@@ -151,7 +151,7 @@ class BoxCollider {
                     yTouching = true;
                     topTouching = true;
                 }
-                
+
                 //If this object is penetrating, resolve
                 if (!yTouching && !xTouching) {
                     resolveCollision(b2);
